@@ -40,7 +40,7 @@ This should make the website available at `localhost:8001`.
 
 > Mailtrap URL: https://mailtrap.io/inboxes/3327402/messages
 
-Login with the Google account:
+**Login with the Google account:**
 
 | E-mail                | Password        |
 | --------------------- | --------------- |
@@ -50,7 +50,7 @@ Login with the Google account:
 
 > Pusher URL: https://dashboard.pusher.com/apps/1909573
 
-Login with the Google account:
+**Login with the Google account:**
 
 | E-mail                | Password        |
 | --------------------- | --------------- |
