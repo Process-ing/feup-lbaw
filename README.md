@@ -1,5 +1,16 @@
 # ProGram - LBAW2411
 
+> Curricular Unit: [Database and Web Applications Laboratory - 2024/25 1S](https://sigarra.up.pt/feup/en/ucurr_geral.ficha_uc_view?pv_ocorrencia_id=541888)<br>
+> Faculty: [FEUP](https://sigarra.up.pt/feup/en/web_page.Inicial)<br>
+> Professor: [Sérgio Nunes](https://sigarra.up.pt/feup/en/func_geral.formview?p_codigo=310021)<br>
+> Authors: [Bruno Oliveira](https://github.com/Process-ing), [Henrique Fernandes](https://github.com/HenriqueSFernandes), [José Sousa](https://github.com/jose-carlos-sousa), [Rodrigo Silva](https://github.com/racoelhosilva)<br>
+> Grades:<br>
+> &emsp; [ER Component](https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/er): 97%<br>
+> &emsp; [EBD Component](https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/ebd): 98%<br>
+> &emsp; [EAP Component](https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/eap): 98%<br>
+> &emsp; [PA Component](https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/pa): 93%<br>
+> Final Grade: 19.2/20
+
 ## ProGram
 
 ProGram is a social networking platform being developed by a startup which aims to connect programmers with like-minded individuals. The need for a specialized space where technology professionals can connect, collaborate, and share knowledge drives this initiative. By providing an interactive and supportive environment, ProGram seeks to fill this gap within the tech community.
@@ -79,6 +90,15 @@ In order to learn more about our project, we encourage you to check the followin
 * [EBD: Database Specification](https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/ebd)
 * [EAP: Architecture Specification and Prototype](https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/eap)
 * [PA: Product and Presentation](https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/pa)
+
+
+## Tips and Tricks (for anyone doing a similar project)
+
+- For the wiki, you will have to write a lot of markdown, with a lot of tables. I recommend to use a formatter to keep everything in the tables aligned and tidy, like [this extension for VSCode](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one). Since the first two deliveries are the ones that require more things in the wiki, probably requiring a lot of collaboration, which is not feasible by using Liveshare alone, it may be wise to write everything in a Notion page and then copy it to the wiki.
+- Most of the diagrams you need to create are not very sophisticated, so the best tool for the job is [draw.io](https://app.diagrams.net/). Although we also created our wireframes in draw.io, it was a bit of a hassle, so I recommend using [Figma](https://www.figma.com/) instead.
+- When doing the EBD component, more specifically the conceptual model, I would highly recommend to first make a draft of the model in paper, and then write a sharper version in draw.io by dividing the model into logical parts (classes/relationships related to posts, related to notifications, related to users, ...) and then join them all in the end. The diagram will be much easier to organize, trust me.
+- As we did, it is a good idea to define your website's style in the EAP component. Work a little bit in Figma to decide on the style you'll like (e.g. for the home page), trying to use as little different components as possible, and implement the components in the prototype as separate views. This will make your website's look and feel much more consistent, and you will not have to worry about it later in the PA component.
+- The parts that require the most work are objectively the EAP and PA components. For the PA specifically, try to have all features implemented before the last week. Trust me, you will still need a lot of time to fix HTML/CSS validation errors, usability and accessibility issues, make pages responsive, write the wiki and fix bugs (which will be much more severe than in the EAP component if left untreated!)
 
 ## Team
 
