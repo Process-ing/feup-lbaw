@@ -5,10 +5,10 @@
 > Professor: [Sérgio Nunes](https://sigarra.up.pt/feup/en/func_geral.formview?p_codigo=310021)<br>
 > Authors: [Bruno Oliveira](https://github.com/Process-ing), [Henrique Fernandes](https://github.com/HenriqueSFernandes), [José Sousa](https://github.com/jose-carlos-sousa), [Rodrigo Silva](https://github.com/racoelhosilva)<br>
 > Grades:<br>
-> &emsp; [ER Component](https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/er): 97%<br>
-> &emsp; [EBD Component](https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/ebd): 98%<br>
-> &emsp; [EAP Component](https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/eap): 98%<br>
-> &emsp; [PA Component](https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/pa): 93%<br>
+> &emsp; [ER Component](https://github.com/Process-ing/feup-lbaw/wiki/er): 97%<br>
+> &emsp; [EBD Component](https://github.com/Process-ing/feup-lbaw/wiki/ebd): 98%<br>
+> &emsp; [EAP Component](https://github.com/Process-ing/feup-lbaw/wiki/eap): 98%<br>
+> &emsp; [PA Component](https://github.com/Process-ing/feup-lbaw/wiki/pa): 93%<br>
 > Final Grade: 19.2/20
 
 ## ProGram
@@ -85,11 +85,11 @@ curl -X GET "http://localhost:8001/api/<ROUTE>" \
 ## Learn More
 
 In order to learn more about our project, we encourage you to check the following documents:
-* [Main wiki page](https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/home)
-* [ER: Requirements Specification](https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/er)
-* [EBD: Database Specification](https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/ebd)
-* [EAP: Architecture Specification and Prototype](https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/eap)
-* [PA: Product and Presentation](https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/pa)
+* [Main wiki page](https://github.com/Process-ing/feup-lbaw/wiki)
+* [ER: Requirements Specification](https://github.com/Process-ing/feup-lbaw/wiki/er)
+* [EBD: Database Specification](https://github.com/Process-ing/feup-lbaw/wiki/ebd)
+* [EAP: Architecture Specification and Prototype](https://github.com/Process-ing/feup-lbaw/wiki/eap)
+* [PA: Product and Presentation](https://github.com/Process-ing/feup-lbaw/wiki/pa)
 
 
 ## Tips and Tricks (for anyone doing a similar project)

@@ -1,52 +1,52 @@
 openapi: 3.0.3
 info:
-  version: '1.0'
-  title: 'LBAW ProGram Web API'
-  description: 'Web Resources Specification (A7) for ProGram'
+  version: "1.0"
+  title: "LBAW ProGram Web API"
+  description: "Web Resources Specification (A7) for ProGram"
 
 # servers:
 # - url: http://localhost:8000
 #   description: 'ProGram Production Server'
 
 externalDocs:
-  description: 'ProGram Wiki'
-  url: https://gitlab.up.pt/lbaw/lbaw2425/lbaw2411/-/wikis/home
+  description: "ProGram Wiki"
+  url: https://github.com/Process-ing/feup-lbaw/wiki
 
 tags:
-  - name: 'M01: Home and Static Pages'
-  - name: 'M02: Authentication and Individual Profile'
-  - name: 'M03: Posts and Announcements'
-  - name: 'M04: Search'
-  - name: 'M05: Administration'
+  - name: "M01: Home and Static Pages"
+  - name: "M02: Authentication and Individual Profile"
+  - name: "M03: Posts and Announcements"
+  - name: "M04: Search"
+  - name: "M05: Administration"
 
 paths:
   /:
     get:
       operationId: R101
-      summary: 'R101: Home Page'
-      description: 'Show the home page of the application. Access: PUB'
+      summary: "R101: Home Page"
+      description: "Show the home page of the application. Access: PUB"
       tags:
-        - 'M01: Home and Static Pages'
+        - "M01: Home and Static Pages"
       responses:
         200:
-          description: 'Ok. Show home page UI.'
+          description: "Ok. Show home page UI."
 
   /login:
     get:
       operationId: R201
-      summary: 'R201: Login Page'
-      description: 'Show the login page of the application. Access: PUB'
+      summary: "R201: Login Page"
+      description: "Show the login page of the application. Access: PUB"
       tags:
-        - 'M02: Authentication and Individual Profile'
+        - "M02: Authentication and Individual Profile"
       responses:
         200:
-          description: 'Ok. Show login form UI.'
+          description: "Ok. Show login form UI."
     post:
       operationId: R202
-      summary: 'R202: Login Action'
-      description: 'Process login form information to authenticate user. Access: PUB'
+      summary: "R202: Login Action"
+      description: "Process login form information to authenticate user. Access: PUB"
       tags:
-        - 'M02: Authentication and Individual Profile'
+        - "M02: Authentication and Individual Profile"
       requestBody:
         required: true
         content:
@@ -64,12 +64,12 @@ paths:
                 - email
                 - password
               example:
-                email: 'johndoe@gmail.com'
-                password: 'password123'
-              
+                email: "johndoe@gmail.com"
+                password: "password123"
+
       responses:
         302:
-          description: 'Redirect after processing the login request.'
+          description: "Redirect after processing the login request."
           headers:
             Location:
               schema:
@@ -77,28 +77,28 @@ paths:
                 format: uri
               examples:
                 302Success:
-                  description: 'Login successful. Redirect to home page.'
-                  value: '/'
+                  description: "Login successful. Redirect to home page."
+                  value: "/"
                 302Failure:
-                  description: 'Login failed. Redirect to login page.'
-                  value: '/login'
+                  description: "Login failed. Redirect to login page."
+                  value: "/login"
 
   /register:
     get:
       operationId: R203
-      summary: 'R203: Register Page'
-      description: 'Show the register page of the application. Access: PUB'
+      summary: "R203: Register Page"
+      description: "Show the register page of the application. Access: PUB"
       tags:
-        - 'M02: Authentication and Individual Profile'
+        - "M02: Authentication and Individual Profile"
       responses:
         200:
-          description: 'Ok. Show register form UI.'
+          description: "Ok. Show register form UI."
     post:
       operationId: R204
-      summary: 'R204: Register Action'
-      description: 'Process register form information to create a new user. Access: PUB'
+      summary: "R204: Register Action"
+      description: "Process register form information to create a new user. Access: PUB"
       tags:
-        - 'M02: Authentication and Individual Profile'
+        - "M02: Authentication and Individual Profile"
       requestBody:
         required: true
         content:
@@ -122,13 +122,13 @@ paths:
                 - handle
                 - password
               example:
-                name: 'John Doe'
-                email: 'johndoe@gmail.com'
-                handle: 'johndoe2024'
-                password: 'password123'
+                name: "John Doe"
+                email: "johndoe@gmail.com"
+                handle: "johndoe2024"
+                password: "password123"
       responses:
         302:
-          description: 'Redirect after processing the register request.'
+          description: "Redirect after processing the register request."
           headers:
             Location:
               schema:
@@ -136,57 +136,57 @@ paths:
                 format: uri
               examples:
                 302Success:
-                  description: 'Registration successful. Redirect to home page.'
-                  value: '/'
+                  description: "Registration successful. Redirect to home page."
+                  value: "/"
                 302Failure:
-                  description: 'Registration failed. Redirect to register page.'
-                  value: '/register'
-          
+                  description: "Registration failed. Redirect to register page."
+                  value: "/register"
+
   /logout:
     post:
       operationId: R205
-      summary: 'R205: Logout Action'
-      description: 'Process logout action to end user session. Access: USR'
+      summary: "R205: Logout Action"
+      description: "Process logout action to end user session. Access: USR"
       tags:
-        - 'M02: Authentication and Individual Profile'
+        - "M02: Authentication and Individual Profile"
       responses:
         302:
-          description: 'Logout successful. Redirect to home page.'
+          description: "Logout successful. Redirect to home page."
           headers:
             Location:
               schema:
                 type: string
                 format: uri
-              example: '/'
+              example: "/"
 
   /user/{id}:
     get:
       operationId: R206
-      summary: 'R206: User Profile Page'
-      description: 'Show the user profile page of the authenticated user. Access: PUB'
+      summary: "R206: User Profile Page"
+      description: "Show the user profile page of the authenticated user. Access: PUB"
       tags:
-        - 'M02: Authentication and Individual Profile'
+        - "M02: Authentication and Individual Profile"
       parameters:
         - name: id
           in: path
           required: true
-          description: 'ID of the user whose profile is being viewed.'
+          description: "ID of the user whose profile is being viewed."
           schema:
             type: integer
       responses:
         200:
-          description: 'Ok. Show user profile page UI.'
+          description: "Ok. Show user profile page UI."
     put:
       operationId: R207
-      summary: 'R207: Update User Profile Action'
-      description: 'Process update user profile form information to update user profile. Access: OWN'
+      summary: "R207: Update User Profile Action"
+      description: "Process update user profile form information to update user profile. Access: OWN"
       tags:
-        - 'M02: Authentication and Individual Profile'
+        - "M02: Authentication and Individual Profile"
       parameters:
         - name: id
           in: path
           required: true
-          description: 'ID of the user whose profile is being updated.'
+          description: "ID of the user whose profile is being updated."
           schema:
             type: integer
       requestBody:
@@ -223,7 +223,7 @@ paths:
                       url:
                         type: string
                         format: uri
-                  
+
                 profile_picture:
                   type: string
                   format: binary
@@ -235,18 +235,18 @@ paths:
                 - is_public
                 - handle
               example:
-                name: 'John Doe 2'
-                email: 'johndoe2@gmail.com'
-                handle: 'johndoe2025'
+                name: "John Doe 2"
+                email: "johndoe2@gmail.com"
+                handle: "johndoe2025"
                 is_public: true
-                description: 'Revised description.'
+                description: "Revised description."
                 languages: [1, 2]
                 technologies: [1, 2]
-                top_projects: [{'Big project', 'http://bigproject.com'}]
+                top_projects: [{ "Big project", "http://bigproject.com" }]
 
       responses:
         302:
-          description: 'Redirect after attempting to update the user profile.'
+          description: "Redirect after attempting to update the user profile."
           headers:
             Location:
               schema:
@@ -254,37 +254,37 @@ paths:
                 format: uri
               examples:
                 302Success:
-                  description: 'Profile update successful. Redirect to user profile page.'
-                  value: '/user/{id}'
+                  description: "Profile update successful. Redirect to user profile page."
+                  value: "/user/{id}"
                 302Failure:
-                  description: 'Profile update failed. Redirect back to user profile edit page.'
-                  value: '/user/{id}/edit'
+                  description: "Profile update failed. Redirect back to user profile edit page."
+                  value: "/user/{id}/edit"
 
   /user/{id}/edit:
     get:
       operationId: R208
-      summary: 'R208: User Profile Edit Page'
-      description: 'Show the user profile edit page of the authenticated user. Access: OWN'
+      summary: "R208: User Profile Edit Page"
+      description: "Show the user profile edit page of the authenticated user. Access: OWN"
       tags:
-        - 'M02: Authentication and Individual Profile'
+        - "M02: Authentication and Individual Profile"
       parameters:
         - name: id
           in: path
           required: true
-          description: 'ID of the user whose profile is being edited.'
+          description: "ID of the user whose profile is being edited."
           schema:
             type: integer
       responses:
         200:
-          description: 'Ok. Show user profile edit page UI.'
+          description: "Ok. Show user profile edit page UI."
 
   /post:
     post:
       operationId: R301
-      summary: 'R301: Create Post'
-      description: 'Process create post form information to create a new post. Access: USR'
+      summary: "R301: Create Post"
+      description: "Process create post form information to create a new post. Access: USR"
       tags:
-        - 'M03: Posts and Announcements'
+        - "M03: Posts and Announcements"
       requestBody:
         required: true
         content:
@@ -309,14 +309,14 @@ paths:
                 - is_public
                 - is_announcement
               example:
-                title: 'Java is not JavaScript'
-                text: 'There is clearly one language that is far better built and useful.'
+                title: "Java is not JavaScript"
+                text: "There is clearly one language that is far better built and useful."
                 is_public: true
                 is_announcement: false
                 tags: [3, 4]
       responses:
         302:
-          description: 'Redirect after attempting to create the post.'
+          description: "Redirect after attempting to create the post."
           headers:
             Location:
               schema:
@@ -324,51 +324,51 @@ paths:
                 format: uri
               examples:
                 302Success:
-                  description: 'Post creation successful. Redirect to post page.'
-                  value: '/post/{id}'
+                  description: "Post creation successful. Redirect to post page."
+                  value: "/post/{id}"
                 302Failure:
-                  description: 'Post creation failed. Redirect back to post creation page.'
-                  value: '/post/create'
-  
+                  description: "Post creation failed. Redirect back to post creation page."
+                  value: "/post/create"
+
   /post/create:
     get:
       operationId: R302
-      summary: 'R302: Post Creation Page'
-      description: 'Show the post creation page. Access: USR'
+      summary: "R302: Post Creation Page"
+      description: "Show the post creation page. Access: USR"
       tags:
-        - 'M03: Posts and Announcements'
+        - "M03: Posts and Announcements"
       responses:
         200:
-          description: 'Ok. Show post creation form.'
+          description: "Ok. Show post creation form."
 
   /post/{id}:
     get:
       operationId: R303
-      summary: 'R303: Post Page'
-      description: 'Show the post page of the specified post. Access: FOL'
+      summary: "R303: Post Page"
+      description: "Show the post page of the specified post. Access: FOL"
       tags:
-        - 'M03: Posts and Announcements'
+        - "M03: Posts and Announcements"
       parameters:
         - name: id
           in: path
           required: true
-          description: 'ID of the post being viewed.'
+          description: "ID of the post being viewed."
           schema:
             type: integer
       responses:
         200:
-          description: 'Ok. Show post page UI.'
+          description: "Ok. Show post page UI."
     put:
       operationId: R304
-      summary: 'R304: Update Post Action'
-      description: 'Process edit post form information to update the specified post. Access: OWN'
+      summary: "R304: Update Post Action"
+      description: "Process edit post form information to update the specified post. Access: OWN"
       tags:
-        - 'M03: Posts and Announcements'
+        - "M03: Posts and Announcements"
       parameters:
         - name: id
           in: path
           required: true
-          description: 'ID of the post being updated.'
+          description: "ID of the post being updated."
           schema:
             type: integer
       requestBody:
@@ -395,14 +395,14 @@ paths:
                 - is_public
                 - is_announcement
               example:
-                title: 'Java is not JavaScript'
-                text: 'There is clearly one language that is far better built and useful.'
+                title: "Java is not JavaScript"
+                text: "There is clearly one language that is far better built and useful."
                 is_public: true
                 is_announcement: false
                 tags: [3, 4]
       responses:
         302:
-          description: 'Redirect after attempting to update the post.'
+          description: "Redirect after attempting to update the post."
           headers:
             Location:
               schema:
@@ -410,27 +410,27 @@ paths:
                 format: uri
               examples:
                 302Success:
-                  description: 'Post update successful. Redirect to post page.'
-                  value: '/post/{id}'
+                  description: "Post update successful. Redirect to post page."
+                  value: "/post/{id}"
                 302Failure:
-                  description: 'Post update failed. Redirect back to post edit page.'
-                  value: '/post/{id}/edit'
+                  description: "Post update failed. Redirect back to post edit page."
+                  value: "/post/{id}/edit"
     delete:
       operationId: R305
-      summary: 'R305: Delete Post Action'
-      description: 'Process delete post action to remove the specified post. Access: OWN'
+      summary: "R305: Delete Post Action"
+      description: "Process delete post action to remove the specified post. Access: OWN"
       tags:
-        - 'M03: Posts and Announcements'
+        - "M03: Posts and Announcements"
       parameters:
         - name: id
           in: path
           required: true
-          description: 'ID of the post being deleted.'
+          description: "ID of the post being deleted."
           schema:
             type: integer
       responses:
         302:
-          description: 'Redirect after attempting to delete the post.'
+          description: "Redirect after attempting to delete the post."
           headers:
             Location:
               schema:
@@ -438,46 +438,46 @@ paths:
                 format: uri
               examples:
                 302Success:
-                  description: 'Post deletion successful. Redirect to author profile page.'
-                  value: '/user/{id}'
+                  description: "Post deletion successful. Redirect to author profile page."
+                  value: "/user/{id}"
                 302Failure:
-                  description: 'Post deletion failed. Redirect back to edit post page.'
-                  value: '/post/{id}'
+                  description: "Post deletion failed. Redirect back to edit post page."
+                  value: "/post/{id}"
   /post/{id}/edit:
     get:
       operationId: R306
-      summary: 'R306: Post Edit Page'
-      description: 'Show the post edit page of the specified post. Access: OWN'
+      summary: "R306: Post Edit Page"
+      description: "Show the post edit page of the specified post. Access: OWN"
       tags:
-        - 'M03: Posts and Announcements'
+        - "M03: Posts and Announcements"
       parameters:
         - name: id
           in: path
           required: true
-          description: 'ID of the post being edited.'
+          description: "ID of the post being edited."
           schema:
             type: integer
       responses:
         200:
-          description: 'Ok. Show post edit form.'
+          description: "Ok. Show post edit form."
 
   /api/post/{id}/like:
     post:
       operationId: R307
-      summary: 'R307: API Like Post Action'
-      description: 'Process like post action to like the specified post, using the logged-in user account, returning the like info as JSON. Access: FOL'
+      summary: "R307: API Like Post Action"
+      description: "Process like post action to like the specified post, using the logged-in user account, returning the like info as JSON. Access: FOL"
       tags:
-        - 'M03: Posts and Announcements'
+        - "M03: Posts and Announcements"
       parameters:
         - name: id
           in: path
           required: true
-          description: 'ID of the post to be liked.'
+          description: "ID of the post to be liked."
           schema:
             type: integer
       responses:
         201:
-          description: 'Post like successfully created. Return like information as a JSON'
+          description: "Post like successfully created. Return like information as a JSON"
           content:
             application/json:
               schema:
@@ -496,7 +496,7 @@ paths:
                 liker_id: 2
                 post_id: 3
         400:
-          description: 'Post like creation failed, due to post already being liked. Return error message as JSON'
+          description: "Post like creation failed, due to post already being liked. Return error message as JSON"
           content:
             application/json:
               schema:
@@ -504,24 +504,24 @@ paths:
                 properties:
                   error:
                     type: string
-                    example: 'You have not liked this post.'
+                    example: "You have not liked this post."
 
     delete:
       operationId: R308
-      summary: 'R308: API Unlike Post Action'
-      description: 'Process unlike post action to unlike the specified post, using the logged-in user account. Access: FOL'
+      summary: "R308: API Unlike Post Action"
+      description: "Process unlike post action to unlike the specified post, using the logged-in user account. Access: FOL"
       tags:
-        - 'M03: Posts and Announcements'
+        - "M03: Posts and Announcements"
       parameters:
         - name: id
           in: path
           required: true
-          description: 'ID of the post to be unliked.'
+          description: "ID of the post to be unliked."
           schema:
             type: integer
       responses:
         200:
-          description: 'Post like successfully deleted. Return success message as JSON'   
+          description: "Post like successfully deleted. Return success message as JSON"
           content:
             application/json:
               schema:
@@ -529,9 +529,9 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 'Post like removed successfully.'
+                    example: "Post like removed successfully."
         400:
-          description: 'Post like deletion failed, due to post not being liked. Return error message as JSON'
+          description: "Post like deletion failed, due to post not being liked. Return error message as JSON"
           content:
             application/json:
               schema:
@@ -539,25 +539,25 @@ paths:
                 properties:
                   error:
                     type: string
-                    example: 'You have not liked this post.'
+                    example: "You have not liked this post."
 
   /api/comment/{id}/like:
     post:
       operationId: R309
-      summary: 'R309: API Like Comment Action'
-      description: 'Process like comment action to like the specified comment, using the logged-in user account. Access: FOL'
+      summary: "R309: API Like Comment Action"
+      description: "Process like comment action to like the specified comment, using the logged-in user account. Access: FOL"
       tags:
-        - 'M03: Posts and Announcements'
+        - "M03: Posts and Announcements"
       parameters:
         - name: id
           in: path
           required: true
-          description: 'ID of the comment to be liked.'
+          description: "ID of the comment to be liked."
           schema:
             type: integer
       responses:
         201:
-          description: 'Comment like successfully created. Return like info as JSON'   
+          description: "Comment like successfully created. Return like info as JSON"
           content:
             application/json:
               schema:
@@ -574,7 +574,7 @@ paths:
                   liker_id: 5
                   comment_id: 6
         400:
-          description: 'Comment like creation failed, due to comment already being liked. Return error message as JSON'
+          description: "Comment like creation failed, due to comment already being liked. Return error message as JSON"
           content:
             application/json:
               schema:
@@ -582,24 +582,24 @@ paths:
                 properties:
                   error:
                     type: string
-                    example: 'You have already liked this comment.'
+                    example: "You have already liked this comment."
 
     delete:
       operationId: R310
-      summary: 'R310: API Unlike Comment Action'
-      description: 'Process unlike comment action to unlike the specified comment, using the logged-in user account. Access: FOL'
+      summary: "R310: API Unlike Comment Action"
+      description: "Process unlike comment action to unlike the specified comment, using the logged-in user account. Access: FOL"
       tags:
-        - 'M03: Posts and Announcements'
+        - "M03: Posts and Announcements"
       parameters:
         - name: id
           in: path
           required: true
-          description: 'ID of the comment to be unliked.'
+          description: "ID of the comment to be unliked."
           schema:
             type: integer
       responses:
         200:
-          description: 'Comment like successfully deleted. Return success message as JSON'   
+          description: "Comment like successfully deleted. Return success message as JSON"
           content:
             application/json:
               schema:
@@ -607,9 +607,9 @@ paths:
                 properties:
                   message:
                     type: string
-                    example: 'Comment like successfully removed.'
+                    example: "Comment like successfully removed."
         400:
-          description: 'Comment like deletion failed, due to comment not being liked. Return error message as JSON'
+          description: "Comment like deletion failed, due to comment not being liked. Return error message as JSON"
           content:
             application/json:
               schema:
@@ -617,53 +617,53 @@ paths:
                 properties:
                   error:
                     type: string
-                    example: 'You have not liked this comment.'
+                    example: "You have not liked this comment."
 
   /search:
     get:
       operationId: R401
-      summary: 'R401: Search Page'
-      description: 'Show the search page of the application, along with the search results. Access: PUB'
+      summary: "R401: Search Page"
+      description: "Show the search page of the application, along with the search results. Access: PUB"
       tags:
-        - 'M04: Search'
+        - "M04: Search"
       parameters:
         - name: query
           in: query
           required: false
-          description: 'Search query string.'
+          description: "Search query string."
           schema:
             type: string
       responses:
         200:
-          description: 'Ok. Show search page UI, with search results.'
+          description: "Ok. Show search page UI, with search results."
 
   /admin:
     get:
       operationId: R501
-      summary: 'R501: Admin Dashboard'
-      description: 'Show the admin page of the application. Access: ADM'
+      summary: "R501: Admin Dashboard"
+      description: "Show the admin page of the application. Access: ADM"
       tags:
-        - 'M05: Administration'
+        - "M05: Administration"
       responses:
         200:
-          description: 'Ok. Show admin dashboard UI.'
+          description: "Ok. Show admin dashboard UI."
 
   /admin/login:
     get:
       operationId: R502
-      summary: 'R502: Admin Login Page'
-      description: 'Show the admin login page of the application. Access: PUB'
+      summary: "R502: Admin Login Page"
+      description: "Show the admin login page of the application. Access: PUB"
       tags:
-        - 'M05: Administration'
+        - "M05: Administration"
       responses:
         200:
-          description: 'Ok. Show admin login form UI.'
+          description: "Ok. Show admin login form UI."
     post:
       operationId: R503
-      summary: 'R503: Admin Login Action'
-      description: 'Process admin login form information to authenticate admin. Access: PUB'
+      summary: "R503: Admin Login Action"
+      description: "Process admin login form information to authenticate admin. Access: PUB"
       tags:
-        - 'M05: Administration'
+        - "M05: Administration"
       requestBody:
         required: true
         content:
@@ -681,11 +681,11 @@ paths:
                 - email
                 - password
               example:
-                email: 'admin@outlook.com'
-                password: 'adminpassword123'
+                email: "admin@outlook.com"
+                password: "adminpassword123"
       responses:
         302:
-          description: 'Redirect after processing the admin login request.'
+          description: "Redirect after processing the admin login request."
           headers:
             Location:
               schema:
@@ -693,64 +693,64 @@ paths:
                 format: uri
               examples:
                 302Success:
-                  description: 'Admin login successful. Redirect to admin dashboard.'
-                  value: '/admin'
+                  description: "Admin login successful. Redirect to admin dashboard."
+                  value: "/admin"
                 302Failure:
-                  description: 'Admin login failed. Redirect to admin login page.'
-                  value: '/admin/login'
-  
+                  description: "Admin login failed. Redirect to admin login page."
+                  value: "/admin/login"
+
   /admin/logout:
     post:
       operationId: R504
-      summary: 'R504: Admin Logout Action'
-      description: 'Process admin logout action to end admin session. Access: ADM'
+      summary: "R504: Admin Logout Action"
+      description: "Process admin logout action to end admin session. Access: ADM"
       tags:
-        - 'M05: Administration'
+        - "M05: Administration"
       responses:
         302:
-          description: 'Admin logout successful. Redirect to admin login page.'
+          description: "Admin logout successful. Redirect to admin login page."
           headers:
             Location:
               schema:
                 type: string
                 format: uri
-              example: '/admin/login'
-  
+              example: "/admin/login"
+
   /admin/user:
     get:
       operationId: R505
-      summary: 'R505: Admin User View Page'
-      description: 'Show the admin user view page. Access: ADM'
+      summary: "R505: Admin User View Page"
+      description: "Show the admin user view page. Access: ADM"
       tags:
-        - 'M05: Administration'
+        - "M05: Administration"
       parameters:
         - name: query
           in: query
           required: false
-          description: 'User info query.'
+          description: "User info query."
           schema:
             type: string
       responses:
         200:
-          description: 'Ok. Show admin user view UI, as well as searched users.'
+          description: "Ok. Show admin user view UI, as well as searched users."
 
   /admin/user/{id}/ban:
     post:
       operationId: R506
-      summary: 'R506: Admin Ban User Action'
-      description: 'Process ban user action to ban the specified user. Access: ADM'
+      summary: "R506: Admin Ban User Action"
+      description: "Process ban user action to ban the specified user. Access: ADM"
       tags:
-        - 'M05: Administration'
+        - "M05: Administration"
       parameters:
         - name: id
           in: path
           required: true
-          description: 'ID of the user to be banned.'
+          description: "ID of the user to be banned."
           schema:
             type: integer
       responses:
         302:
-          description: 'Redirect after attempting to ban the user.'
+          description: "Redirect after attempting to ban the user."
           headers:
             Location:
               schema:
@@ -758,47 +758,47 @@ paths:
                 format: uri
               examples:
                 302Success:
-                  description: 'User ban successful. Redirect to admin user view page.'
-                  value: '/admin/user'
+                  description: "User ban successful. Redirect to admin user view page."
+                  value: "/admin/user"
                 302Failure:
-                  description: 'User ban failed. Redirect back to admin user view page.'
-                  value: '/admin/user'
+                  description: "User ban failed. Redirect back to admin user view page."
+                  value: "/admin/user"
 
   /admin/ban:
     get:
       operationId: R507
-      summary: 'R507: Admin Ban View Page'
-      description: 'Show the admin ban view page. Access: ADM'
+      summary: "R507: Admin Ban View Page"
+      description: "Show the admin ban view page. Access: ADM"
       tags:
-        - 'M05: Administration'
+        - "M05: Administration"
       parameters:
         - name: query
           in: query
           required: false
-          description: 'Ban info query.'
+          description: "Ban info query."
           schema:
             type: string
       responses:
         200:
-          description: 'Ok. Show admin ban view page UI.'
+          description: "Ok. Show admin ban view page UI."
 
   /admin/ban/{id}/revoke:
     post:
       operationId: R508
-      summary: 'R508: Admin Revoke Ban Action'
-      description: 'Process revoke ban action to inactive an existing ban. Access: ADM'
+      summary: "R508: Admin Revoke Ban Action"
+      description: "Process revoke ban action to inactive an existing ban. Access: ADM"
       tags:
-        - 'M05: Administration'
+        - "M05: Administration"
       parameters:
         - name: id
           in: path
           required: true
-          description: 'ID of the ban to be revoked.'
+          description: "ID of the ban to be revoked."
           schema:
             type: integer
       responses:
         302:
-          description: 'Redirect after attempting to revoke the ban.'
+          description: "Redirect after attempting to revoke the ban."
           headers:
             Location:
               schema:
@@ -806,26 +806,26 @@ paths:
                 format: uri
               examples:
                 302Success:
-                  description: 'Ban revocation successful. Redirect to admin ban view page.'
-                  value: '/admin/ban'
+                  description: "Ban revocation successful. Redirect to admin ban view page."
+                  value: "/admin/ban"
                 302Failure:
-                  description: 'Ban revocation failed. Redirect back to admin ban view page.'
-                  value: '/admin/ban'
-  
+                  description: "Ban revocation failed. Redirect back to admin ban view page."
+                  value: "/admin/ban"
+
   /admin/post:
     get:
       operationId: R509
-      summary: 'R509: Admin Post View Page'
-      description: 'Show the admin post view page. Access: ADM'
+      summary: "R509: Admin Post View Page"
+      description: "Show the admin post view page. Access: ADM"
       tags:
-        - 'M05: Administration'
+        - "M05: Administration"
       parameters:
         - name: query
           in: query
           required: false
-          description: 'Post info query.'
+          description: "Post info query."
           schema:
             type: string
       responses:
         200:
-          description: 'Ok. Show admin post view page UI.'
+          description: "Ok. Show admin post view page UI."
